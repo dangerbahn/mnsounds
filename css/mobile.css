@@ -1,0 +1,128 @@
+body{
+    background: url('../assets/bg-text.gif');
+}
+
+
+
+.bottom{
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    bottom: 0;
+    left: 5%;
+
+    z-index: 100;
+}
+
+html #heading{
+    width: 480px;
+    margin: 0 auto 0;
+    text-align: center;
+    font-family: 'Waiting for the Sunrise', cursive;
+    font-size: 72px;
+    color: #efefef;
+    padding-top:25px;
+    padding-bottom: 20px;
+    letter-spacing: 8px;
+}
+
+html #container{
+    width: 480px;
+    margin: 0 auto 0;
+
+}
+
+html #col0{
+  width: 480px;
+  float: left;  
+}
+
+html #col1{
+   width: 480px;
+  float: left;   
+}
+
+html #col2{
+   width: 480px;
+  float: left;   
+}
+        
+html .item {
+    width: 440px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    float: left;
+    border: 10px solid #202020;
+    box-shadow: 1px 1px 6px #000;
+    border-radius: 2px;
+}
+
+.item img{
+    width: 100%;   
+}
+        
+        
+          	    #more{
+		background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #202020;
+    color: #000000;
+    display: none;
+    font-weight: bold;
+    left: 1100px;
+    padding: 5px;
+    position: fixed;
+    top: 100px;
+
+	    }
+	    #no-more{
+		background: none repeat scroll 0 0 #EEEEEE;
+    border: 1px solid #CFCFCF;
+    color: #000000;
+    display: none;
+    font-weight: bold;
+    left: 1100px;
+    padding: 5px;
+    position: fixed;
+    top: 100px;
+
+	    }
+html #bar{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 30px;
+    background: none;
+     
+    /* box-shadow: 2px 1px 8px #000; */
+    color: #efefef;
+    font-family: 'Waiting for the Sunrise', cursive;
+}
+
+html .bar-content{
+    
+    width: 480px;
+    margin: 0 auto 0;
+    height: 30px;
+    position: relative;
+}
+
+.bar-content a{
+    font-size: 28px;
+    color: #efefef;
+    height: 32px;
+    text-decoration: none;
+    position: fixed;
+    top: -10px;
+    right: 5px;
+    }
+
+.bar-content a:hover{
+    color: #fff;
+    top: -2px;
+     text-shadow: 1px 1px 1px #000;
+     opacity: 1;
+}
+
