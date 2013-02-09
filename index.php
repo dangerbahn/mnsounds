@@ -1,6 +1,6 @@
 <?php
-$con = mysql_connect("localhost", "kgzohssv_danger", "Mintman1") or die ('Error connecting to mysql');
-mysql_select_db("kgzohssv_metoo");
+$con = mysql_connect("localhost", "root", "root") or die ('Error connecting to mysql');
+mysql_select_db("mnsounds");
 
 $result = mysql_query("select SQL_CALC_FOUND_ROWS * from scroll_images order by rand() limit 12");
 $result2 = mysql_query("select SQL_CALC_FOUND_ROWS * from scroll_images order by rand() limit 12");
@@ -27,14 +27,7 @@ $actual_row_count = $row_object->rowcount;
         <script src="js/jquery-1.7.2.js" type="text/javascript"></script>
         <script type='text/javascript' src='js/jquery.fancybox-1.3.4.pack.js'></script>
         <script src="js/main.js" type="text/javascript"></script>
-        <script>
-		if((navigator.userAgent.match(/iPad/i))) {
-    		document.write("<link type=\"text\/css\" rel=\"stylesheet\" media=\"all\" href=\"css\/tablet.css\" charset=\"utf-8\" \/>");
-	  }
-	  if((navigator.userAgent.match(/iPhone/i))) {
-    		document.write("<link type=\"text\/css\" rel=\"stylesheet\" media=\"all\" href=\"css\/mobile.css\" charset=\"utf-8\" \/>");
-	  }
-	  </script>
+
 <script type="text/javascript">
 		$(function() {
 			$("a.group").fancybox({

@@ -1,6 +1,6 @@
 <?php
-$con = mysql_connect("localhost", "kgzohssv_metoo", "Cuckned8");
-mysql_select_db("kgzohssv_metoo");
+$con = mysql_connect("localhost", "root", "root");
+mysql_select_db("mnsounds");
 
 
 /* delete all rows from table */

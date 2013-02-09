@@ -3,8 +3,8 @@
 $requested_page = $_POST['page_num'];
 $set_limit = (($requested_page - 1) * 12) . ",12";
 
-$con = mysql_connect("localhost", "kgzohssv_danger", "Mintman1");
-mysql_select_db("kgzohssv_metoo");
+$con = mysql_connect("localhost", "root", "root");
+mysql_select_db("mnsounds");
 
 
 $result = mysql_query("select  * from scroll_images order by rand() limit $set_limit");
