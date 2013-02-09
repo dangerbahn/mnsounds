@@ -1,0 +1,34 @@
+version 0.0.0.0.1
+hacked together crap from months ago. just getting it into github. cleanups to come, barbones database dump added. (one table, two entries) 
+
+add some images to images folder and execute run.php to repopulate database
+please don't check in images, keeping it to a minimum for testing only.
+
+
+GOALS:
+stage1 
+optional log in (twitter api)
+ajax search
+tags(pulled from image renaming initially)
+privacy levels (general, login, gold)
+
+stage2 
+rating system
+share links, tweet bot
+ability to upload/tag images
+automatically pull from a shared dropbox folder (tbd)
+comments. unmoderated.
+
+other things.
+
+stage3
+tag piles, drag drop
+physics. for some reason. explode pictures. drop them. all. 
+canvas image manip. think instagram filters.
+amzn s3 servers
+web socket sessions, users viewing same photo can text chat, 
+if canvas, can draw on picture. add text. option to save, generate new link.
+virtual server, rackspace cdn 
+
+
+
