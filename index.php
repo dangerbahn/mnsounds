@@ -67,17 +67,14 @@ $actual_row_count = $row_object->rowcount;
                         'arrows' : false,
                         'titleShow' : true,
                         'titlePosition' : 'outside',
-                        
-                    });         
+                    });
                 });
                 twttr.widgets.load();
             }
-            
         });
         timesLoaded++;
         loadingInterval = (timesLoaded * 500);
         if(timesLoaded > 12){
-            
         }
         else{
             setTimeout(function(){
@@ -147,69 +144,50 @@ $actual_row_count = $row_object->rowcount;
 
 
 
-    </head>
+</head>
 
-    <body>
+<body>
     <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=131000287038500";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <script>
+        (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=131000287038500";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script>
     
     <div class="bottom"></div>
         <div id='more' >Loading More Content</div>
         <div id='no-more' >No More Content</div>
         <div id="bar">
             <div class="bar-content">
-               
-                    <a class="meh-btn" href="">meh</a>
-                    <a href="https://twitter.com/yeametoo_meh" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @yeametoo_meh</a>
-
-                    
-                    
-                
+                <a class="meh-btn" href="">meh</a>
+                <a href="https://twitter.com/yeametoo_meh" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @yeametoo_meh</a>
             </div>
         </div>
         <div id="heading">yea, me too.</div>
         <div id="container">
-        <div id='col0'>
-            
+            <div id='col0'></div>
+            <div id='col1'></div>
+            <div id='col2'></div>
         </div>
-        <div id='col1'>
-
-        </div>
-        <div id='col2'>
-
+    <script>
     
-    
-    
-        </div>
-        </div>
-        
-
-        <script>
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-        
-        </script>
-        
-        
-       
-        <script type="text/javascript">
-        
-          var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', 'UA-34276446-1']);
-          _gaq.push(['_trackPageview']);
-        
-          (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-          })();
-        
-        </script>
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-34276446-1']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
 
     </body>
 </html>
