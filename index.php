@@ -28,157 +28,121 @@ $actual_row_count = $row_object->rowcount;
         <script type='text/javascript' src='js/jquery.fancybox-1.3.4.pack.js'></script>
         <script src="js/main.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-		$(function() {
-			$("a.group").fancybox({
-				'nextEffect'	:	'fade',
-				'prevEffect'	:	'fade',
-				'overlayOpacity' :  0.8,
-				'overlayColor' : '#000000',
-				'arrows' : false,
-				'titleShow' : true,
-				'titlePosition' : 'outside',
-				
-			});			
-		});
-	</script>
-                <script type="text/javascript">
-    
-                var page = 1;
-                var data = {
-                            page_num: page
-                        };
+<script type="text/javascript"> 
+        $(function() {/* so fucking temporary */
+            $("a.group").fancybox({
+                'nextEffect'    :   'fade',
+                'prevEffect'    :   'fade',
+                'overlayOpacity' :  0.8,
+                'overlayColor' : '#000000',
+                'arrows' : false,
+                'titleShow' : true,
+                'titlePosition' : 'outside',
                 
-                        var actual_count = "<?php echo $actual_row_count; ?>";
-                        var timesLoaded = 1;
-                        loadingInterval = 3000;
-                        loading = function(){
-                            $.ajax({
-                                type: "POST",
-                                url: "data.php",
-                                data:data,
-                                success: function(res) {
-                                    $("#container").append(res);
-                                   $(function() {
-			$("a.group").fancybox({
-				'nextEffect'	:	'fade',
-				'prevEffect'	:	'fade',
-				'overlayOpacity' :  0.8,
-				'overlayColor' : '#000000',
-				'arrows' : false,
-				'titleShow' : true,
-				'titlePosition' : 'outside',
-				
-			});			
-		});
-                                    
-                                    twttr.widgets.load();
-                                    
-                                }
-                                
-                            });
-                            timesLoaded++;
-                            loadingInterval = (timesLoaded * 500);
-                            if(timesLoaded > 12){
-                                
-                            }
-                            else{
-                                setTimeout(function(){
-                                loading();
-                            }, loadingInterval); 
-                            }
-                            
+            });         
+        });
 
-                        }
-                setTimeout(function(){
-                    loading();
-                }, 500);  
-                   
-                $(window).scroll(function () {
-                    
-                    $('#more').hide();
-                    $('#no-more').hide();
-                   
-                    if($(window).scrollTop() + $(window).height() > $(document).height() - 300) {
-                        $('#more').css("top","400");
-                        $('#more').show();
-                    }
-                    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+    /* this was all "just want to see if this works" code. don't judge me. re-write in-coming... */
+    var page = 1;
+    var data = {
+            page_num: page
+        };
+                
+    var actual_count = "<?php echo $actual_row_count; ?>";
+    var timesLoaded = 1;
+    loadingInterval = 3000;
+    loading = function(){
+        $.ajax({
+            type: "POST",
+            url: "data.php",
+            data:data,
+            success: function(res) {
+                $("#container").append(res);
+                $(function() {
+                    $("a.group").fancybox({
+                        'nextEffect'    :   'fade',
+                        'prevEffect'    :   'fade',
+                        'overlayOpacity' :  0.8,
+                        'overlayColor' : '#000000',
+                        'arrows' : false,
+                        'titleShow' : true,
+                        'titlePosition' : 'outside',
                         
-                        $('#more').hide();
-                        $('#no-more').hide();
-                
-                        page++;
-                
-                        
-
-                        if((page-1)* 12 > actual_count){ 
-                            $('#no-more').css("top","400");
-                            $('#no-more').show();
-                        }else{
-                            loading();                        
-                        }
-                                                
-                    }
-                    
-                
-                
+                    });         
                 });
+                twttr.widgets.load();
+            }
+            
+        });
+        timesLoaded++;
+        loadingInterval = (timesLoaded * 500);
+        if(timesLoaded > 12){
+            
+        }
+        else{
+            setTimeout(function(){
+                loading();
+            }, loadingInterval); 
+        }
+        
+    }
+    setTimeout(function(){
+        loading();
+    }, 500);  
+                   
+    $(window).scroll(function () {
+        $('#more').hide();
+        $('#no-more').hide();
+       
+        if($(window).scrollTop() + $(window).height() > $(document).height() - 300) {
+            $('#more').css("top","400");
+            $('#more').show();
+        }
+        if($(window).scrollTop() + $(window).height() == $(document).height()) {
+            $('#more').hide();
+            $('#no-more').hide();
+            page++;
+            if((page-1)* 12 > actual_count){ 
+                $('#no-more').css("top","400");
+                $('#no-more').show();
+            }else{
+                loading();
+            }
+        }
+    });
                 
             
-            $(document).ready(function(){
-                
-                <?php
+    $(document).ready(function(){
+        <?php
             $item = 0;
             $cat = 0;
-            while ($row = mysql_fetch_array($result)) {
-
-                    echo "
-                    $('#col" . $cat . "').append(\"<div class='item is" . $item . " cat" . $cat . "'><a class='group' rel='group1' href='images/" . $row['name'] . "'><img src='images/" . $row['name'] . "' /></a><div class='options'><a href='http://yeametoo.com/meh.php#" . $row['name'] . "' target=\'blank\' class='enhance'>enhance</a><a href=\'https://twitter.com/share\' class=\'twitter-share-button\' data-url=\'http://yeametoo.com/meh.php#" . $row['name'] . "\' data-via=\'yeametoo_meh\' data-count=\'none\' data-hashtags=\'yeametoo\'>Tweet</a><div class='fb-like' data-href='http:\/\/www.yeametoo.com\/meh.php#" . $row['name'] . "' data-send='false' data-layout='button_count' data-width='140' data-show-faces='false' data-colorscheme='dark' data-font='trebuchet ms'></div></div></div>\");
-                    
+            while ($row = mysql_fetch_array($result)) { /* my god... */
+                echo "$('#col" . $cat . "').append(\"<div class='item is" . $item . " cat" . $cat . "'><a class='group' rel='group1' href='images/" . $row['name'] . "'><img src='images/" . $row['name'] . "' /></a><div class='options'><a href='http://yeametoo.com/meh.php#" . $row['name'] . "' target=\'blank\' class='enhance'>enhance</a><a href=\'https://twitter.com/share\' class=\'twitter-share-button\' data-url=\'http://yeametoo.com/meh.php#" . $row['name'] . "\' data-via=\'yeametoo_meh\' data-count=\'none\' data-hashtags=\'yeametoo\'>Tweet</a><div class='fb-like' data-href='http:\/\/www.yeametoo.com\/meh.php#" . $row['name'] . "' data-send='false' data-layout='button_count' data-width='140' data-show-faces='false' data-colorscheme='dark' data-font='trebuchet ms'></div></div></div>\");
                     ";
-           
-                
                 $item++;
                 $cat++;
                 if($cat == 3){
                    $cat = 0; 
                 }
             }
-            ?>
-            
-            $('.bar-content a').hide();
-            setTimeout(function(){
-                $('.bar-content a').fadeIn(1500);
-            },10000);
-            $(function() {
-			$("a.group").fancybox({
-				'nextEffect'	:	'fade',
-				'prevEffect'	:	'fade',
-				'overlayOpacity' :  0.8,
-				'overlayColor' : '#000000',
-				'arrows' : false,
-				'titleShow' : true,
-				'titlePosition' : 'outside',
-				
-			});			
-		});
-		
-		            
-		/*
-var enableHover = function(){
-    		$('.item').hover(function(){
-		  $('div', this).animate({'height' : '30px'}, 100);
-		});
-
-		}();
-*/
-		
+        ?>
+        $('.bar-content a').hide();
+        setTimeout(function(){
+            $('.bar-content a').fadeIn(1500);
+        },10000);
+        $(function() {
+            $("a.group").fancybox({ /* why does this exist. fuck you plugin */
+                'nextEffect'    :   'fade',
+                'prevEffect'    :   'fade',
+                'overlayOpacity' :  0.8,
+                'overlayColor' : '#000000',
+                'arrows' : false,
+                'titleShow' : true,
+                'titlePosition' : 'outside',
             });
-            
-            
-
-        </script>
+        });
+    });
+</script>
 
 
 
@@ -219,9 +183,9 @@ var enableHover = function(){
         </div>
         <div id='col2'>
 
-	
-	
-	
+    
+    
+    
         </div>
         </div>
         
