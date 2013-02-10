@@ -1,6 +1,6 @@
 <?php
-$con = mysql_connect("localhost", "kgzohssv_danger", "Mintman1") or die ('Error connecting to mysql');
-mysql_select_db("kgzohssv_metoo");
+$con = mysql_connect("localhost", "root", "root") or die ('Error connecting to mysql');
+mysql_select_db("mnsounds");
 
 
 $row_object = mysql_query("Select Found_Rows() as rowcount");
@@ -38,13 +38,13 @@ $actual_row_count = $row_object->rowcount;
             
             $(document).ready(function(){
                 
-                url = window.location.href.split('#');
-                hash = url[1];
+                var hash = window.location.href.split('#');
+                var home = window.location.href.split('meh');
+                var url = window.location.href;
+                $('#meh').append('<img src=\'' + home[0] + '/images/' + hash[1] + '\' />');
+                $('#showlink').val(url);
                 
-                $('#meh').append('<img src=\'http://yeametoo.com/images/' + hash + '\' />');
-                $('#showlink').val('http://yeametoo.com/meh.php#' + hash + '');
-                
-                $('#twt').append('<a href=\'https://twitter.com/share\' class=\'twitter-share-button\' data-url=\'http://yeametoo.com/meh.php#' + hash + '\' data-via=\'yeametoo_meh\' data-count=\'none\' data-hashtags=\'yeametoo\'>Tweet</a>');
+                $('#twt').append('<a href=\'https://twitter.com/share\' class=\'twitter-share-button\' data-url=\'' + url + '\' data-via=\'yeametoo_meh\' data-count=\'none\' data-hashtags=\'yeametoo\'>Tweet</a>');
                 
                 });
                 

@@ -109,12 +109,26 @@ $actual_row_count = $row_object->rowcount;
     });
                 
             
-    $(document).ready(function(){
+$(document).ready(function(){
+    (function(){
+        var url = window.location.href;
+        console.log(url);
         <?php
+            function curPageURL() {
+                $pageURL = '';
+                if ($_SERVER["SERVER_PORT"] != "80") {
+                $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+                } else {
+                $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+                }
+                return $pageURL;
+            }
+            $url = curPageURL();
+            
             $item = 0;
             $cat = 0;
             while ($row = mysql_fetch_array($result)) { /* my god... */
-                echo "$('#col" . $cat . "').append(\"<div class='item is" . $item . " cat" . $cat . "'><a class='group' rel='group1' href='images/" . $row['name'] . "'><img src='images/" . $row['name'] . "' /></a><div class='options'><a href='http://yeametoo.com/meh.php#" . $row['name'] . "' target=\'blank\' class='enhance'>enhance</a><a href=\'https://twitter.com/share\' class=\'twitter-share-button\' data-url=\'http://yeametoo.com/meh.php#" . $row['name'] . "\' data-via=\'yeametoo_meh\' data-count=\'none\' data-hashtags=\'yeametoo\'>Tweet</a><div class='fb-like' data-href='http:\/\/www.yeametoo.com\/meh.php#" . $row['name'] . "' data-send='false' data-layout='button_count' data-width='140' data-show-faces='false' data-colorscheme='dark' data-font='trebuchet ms'></div></div></div>\");
+                echo "$('#container').append(\"<div class='item is" . $item . " cat" . $cat . "'><a class='group' rel='group1' href='images/" . $row['name'] . "'><img src='images/" . $row['name'] . "' /></a><div class='options'><a href='" . $url . "meh.php#" . $row['name'] . "' target=\'blank\' class='enhance'>enhance</a><a href=\'https://twitter.com/share\' class=\'twitter-share-button\' data-url=\'" . $url . "#" . $row['name'] . "\' data-via=\'yeametoo_meh\' data-count=\'none\' data-hashtags=\'yeametoo\'>Tweet</a><div class='fb-like' data-href='" . $url . "\/meh.php#" . $row['name'] . "' data-send='false' data-layout='button_count' data-width='140' data-show-faces='false' data-colorscheme='dark' data-font='trebuchet ms'></div></div></div>\");
                     ";
                 $item++;
                 $cat++;
@@ -138,7 +152,8 @@ $actual_row_count = $row_object->rowcount;
                 'titlePosition' : 'outside',
             });
         });
-    });
+    }());
+});
 </script>
 
 
@@ -169,9 +184,7 @@ $actual_row_count = $row_object->rowcount;
         </div>
         <div id="heading">yea, me too.</div>
         <div id="container">
-            <div id='col0'></div>
-            <div id='col1'></div>
-            <div id='col2'></div>
+            
         </div>
     <script>
     
